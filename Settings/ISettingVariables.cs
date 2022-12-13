@@ -8,6 +8,7 @@ namespace MoreCompanionsForMyTavern.Settings
 {
     internal interface ISettingVariables
     {
+        bool overrideAge { get; set; }
         int minCompanionAge { get; set; }
         int maxCompanionAge { get; set; }
         int maxCompanionsPerTown { get; set;} 

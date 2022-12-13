@@ -14,6 +14,7 @@ using TaleWorlds.ObjectSystem;
 using TaleWorlds.LinQuick;
 using MCM.Abstractions.Base.Global;
 using TaleWorlds.Library;
+using Helpers;
 
 namespace MoreCompanionsForMyTavern.Behavior
 {
@@ -217,6 +218,8 @@ namespace MoreCompanionsForMyTavern.Behavior
             else
                 age = MBRandom.RandomInt(GlobalSettings<MCMSettings>.Instance.minCompanionAge, GlobalSettings<MCMSettings>.Instance.maxCompanionAge);
             Hero hero = HeroCreator.CreateSpecialHero(companionTemplate, settlement2, null, null, age);
+            if (GlobalSettings<MCMSettings>.Instance.overrideAge)
+                hero.SetBirthDay(HeroHelper.GetRandomBirthDayForAge(age));
             this.AdjustEquipment(hero);
             hero.ChangeState(Hero.CharacterStates.Active);
             EnterSettlementAction.ApplyForCharacterOnly(hero, settlement);
