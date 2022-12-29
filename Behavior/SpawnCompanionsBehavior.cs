@@ -220,6 +220,11 @@ namespace MoreCompanionsForMyTavern.Behavior
             Hero hero = HeroCreator.CreateSpecialHero(companionTemplate, settlement2, null, null, age);
             if (GlobalSettings<MCMSettings>.Instance.overrideAge)
                 hero.SetBirthDay(HeroHelper.GetRandomBirthDayForAge(age));
+            else
+            {
+                age = Campaign.Current.Models.AgeModel.HeroComesOfAge + 5 + MBRandom.RandomInt(27);
+                hero.SetBirthDay(HeroHelper.GetRandomBirthDayForAge(age));
+            }
             this.AdjustEquipment(hero);
             hero.ChangeState(Hero.CharacterStates.Active);
             EnterSettlementAction.ApplyForCharacterOnly(hero, settlement);

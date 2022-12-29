@@ -32,7 +32,7 @@ namespace MoreCompanionsForMyTavern.Settings
         [SettingPropertyGroup("{=settings_overrideAge}Should override age?", GroupOrder = 0)]
         public int maxCompanionAge { get; set; } = 40;
         [SettingPropertyInteger("{=settings_maxCompanions}Maximum number of wanderers in town", minValue: GlobalModSettings.minCompanionsPerTown, maxValue: GlobalModSettings.maxCompanionsPerTown, Order = 3, HintText = "{=settings_maxCompanionsDesc}The maximum number of wanderers that can be in a town at once. Expect lag/temporary freezes if you set a high number.", RequireRestart = false)]
-        public int maxCompanionsPerTown { get; set; } = 40;
+        public int maxCompanionsPerTown { get; set; } = 5;
 
         [SettingPropertyBool("{=settings_refreshWeekly}Auto-refresh Wanderers weekly", Order = 4, HintText = "{=settings_refreshWeeklyDesc}Automatically refreshes the wanderers at the start of every week. May cause lag!")]
         public bool autoRefreshEveryWeek { get; set; } = false;
